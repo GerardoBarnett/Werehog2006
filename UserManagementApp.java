@@ -209,6 +209,20 @@ class UserManagementSystem {
                 .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + id));
     }
 
+
+    /**
+     * Finds a user by their name
+     * @param email The name to search for
+     * @return The found user
+     * @throws IllegalArgumentException if user is not found
+     */
+    private User findUserByName(string name) throws IllegalArgumentException {
+        return users.stream()
+                .filter(u -> u.getName() == name)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("User not found with name: " + name));
+    }
+
     /**
      * Finds a user by their email
      * @param email The email to search for
